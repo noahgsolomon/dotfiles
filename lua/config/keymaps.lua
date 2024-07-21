@@ -19,3 +19,36 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
 vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true })
 vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true })
+
+-- Toggleterm keymaps
+vim.keymap.set("n", "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+vim.keymap.set("t", "<C-\\>", "<cmd>ToggleTerm<CR>", { desc = "Toggle terminal" })
+
+-- Function to set terminal keymaps
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+end
+
+-- Auto-command to set terminal keymaps when terminal is opened
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+
+-- Additional toggleterm keymaps (optional)
+vim.keymap.set("n", "<leader>tf", "<cmd>ToggleTerm direction=float<CR>", { desc = "ToggleTerm float" })
+vim.keymap.set(
+  "n",
+  "<leader>th",
+  "<cmd>ToggleTerm size=10 direction=horizontal<CR>",
+  { desc = "ToggleTerm horizontal split" }
+)
+vim.keymap.set(
+  "n",
+  "<leader>tv",
+  "<cmd>ToggleTerm size=80 direction=vertical<CR>",
+  { desc = "ToggleTerm vertical split" }
+)
