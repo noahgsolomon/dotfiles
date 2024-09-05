@@ -20,6 +20,15 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
+    window = {
+      position = "top",
+      width = "100%",
+      height = "20%", -- Adjust this value to change the height of the Neotree window
+      mapping_options = {
+        noremap = true,
+        nowait = true,
+      },
+    },
     filesystem = {
       filtered_items = {
         visible = true,
