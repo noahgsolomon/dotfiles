@@ -19,6 +19,7 @@
 -- }
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   opts = {
     window = {
       -- position = "top",
@@ -55,12 +56,6 @@ return {
       },
     },
     default_component_configs = {
-      icon = {
-        folder_closed = "",
-        folder_open = "",
-        folder_empty = "",
-        default = "",
-      },
       modified = {
         symbol = "[+]",
       },
