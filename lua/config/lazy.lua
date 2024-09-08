@@ -160,4 +160,4 @@ require("lazy").setup({
     },
   },
 })
-vim.cmd([[colorscheme ayu]])
+vim.cmd([[colorscheme catppuccin]])
